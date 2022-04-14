@@ -6,11 +6,11 @@ class QuickSort :
 
     int* quickSort(int* numbers, int left, int right)
     {
-        int pivot; // разрешающий элемент
-        int l_hold = left; //левая граница
-        int r_hold = right; // правая граница
+        int pivot; // СЂР°Р·СЂРµС€Р°СЋС‰РёР№ СЌР»РµРјРµРЅС‚
+        int l_hold = left; //Р»РµРІР°СЏ РіСЂР°РЅРёС†Р°
+        int r_hold = right; // РїСЂР°РІР°СЏ РіСЂР°РЅРёС†Р°
         pivot = numbers[left];
-        while (left < right) // пока границы не сомкнутся
+        while (left < right) // РїРѕРєР° РіСЂР°РЅРёС†С‹ РЅРµ СЃРѕРјРєРЅСѓС‚СЃСЏ
         {
             while ((numbers[right] >= pivot) && (left < right))
             {
@@ -18,30 +18,30 @@ class QuickSort :
                 this->iter_count++;
 
                 right--;
-            }// сдвигаем правую границу пока элемент [right] больше [pivot]
-            if (left != right) // если границы не сомкнулись
+            }// СЃРґРІРёРіР°РµРј РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ РїРѕРєР° СЌР»РµРјРµРЅС‚ [right] Р±РѕР»СЊС€Рµ [pivot]
+            if (left != right) // РµСЃР»Рё РіСЂР°РЅРёС†С‹ РЅРµ СЃРѕРјРєРЅСѓР»РёСЃСЊ
             {
-                numbers[left] = numbers[right]; // перемещаем элемент [right] на место разрешающего
-                left++; // сдвигаем левую границу вправо
+                numbers[left] = numbers[right]; // РїРµСЂРµРјРµС‰Р°РµРј СЌР»РµРјРµРЅС‚ [right] РЅР° РјРµСЃС‚Рѕ СЂР°Р·СЂРµС€Р°СЋС‰РµРіРѕ
+                left++; // СЃРґРІРёРіР°РµРј Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ РІРїСЂР°РІРѕ
             }
             while ((numbers[left] <= pivot) && (left < right))
             {
-                this->comparison_count++; // количество сравнений
-                this->iter_count++; // количество итераций
+                this->comparison_count++; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃСЂР°РІРЅРµРЅРёР№
+                this->iter_count++; // РєРѕР»РёС‡РµСЃС‚РІРѕ РёС‚РµСЂР°С†РёР№
 
-                left++; // сдвигаем левую границу пока элемент [left] меньше [pivot]
+                left++; // СЃРґРІРёРіР°РµРј Р»РµРІСѓСЋ РіСЂР°РЅРёС†Сѓ РїРѕРєР° СЌР»РµРјРµРЅС‚ [left] РјРµРЅСЊС€Рµ [pivot]
             }
-            if (left != right) // если границы не сомкнулись
+            if (left != right) // РµСЃР»Рё РіСЂР°РЅРёС†С‹ РЅРµ СЃРѕРјРєРЅСѓР»РёСЃСЊ
             {
-                numbers[right] = numbers[left]; // перемещаем элемент [left] на место [right]
-                right--; // сдвигаем правую границу влево
+                numbers[right] = numbers[left]; // РїРµСЂРµРјРµС‰Р°РµРј СЌР»РµРјРµРЅС‚ [left] РЅР° РјРµСЃС‚Рѕ [right]
+                right--; // СЃРґРІРёРіР°РµРј РїСЂР°РІСѓСЋ РіСЂР°РЅРёС†Сѓ РІР»РµРІРѕ
             }
         }
-        numbers[left] = pivot; // ставим разрешающий элемент на место
+        numbers[left] = pivot; // СЃС‚Р°РІРёРј СЂР°Р·СЂРµС€Р°СЋС‰РёР№ СЌР»РµРјРµРЅС‚ РЅР° РјРµСЃС‚Рѕ
         pivot = left;
         left = l_hold;
         right = r_hold;
-        if (left < pivot) // Рекурсивно вызываем сортировку для левой и правой части массива
+        if (left < pivot) // Р РµРєСѓСЂСЃРёРІРЅРѕ РІС‹Р·С‹РІР°РµРј СЃРѕСЂС‚РёСЂРѕРІРєСѓ РґР»СЏ Р»РµРІРѕР№ Рё РїСЂР°РІРѕР№ С‡Р°СЃС‚Рё РјР°СЃСЃРёРІР°
             quickSort(numbers, left, pivot - 1);
         if (right > pivot)
             quickSort(numbers, pivot + 1, right);
@@ -55,7 +55,7 @@ class QuickSort :
         return "quick sort";
     }
 public:
-    int* Alg(int* arr, int n) final // функция Al
+    int* Alg(int* arr, int n) final // С„СѓРЅРєС†РёСЏ Al
     {
         return quickSort(arr, 0, n - 1);
     }
